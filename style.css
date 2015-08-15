@@ -1,0 +1,141 @@
+body{
+    background: #d0e4f7; 
+}
+
+label{ 
+    padding-left: 50px;
+} 
+
+a{
+    color: black;
+    cursor: pointer;
+}
+
+.no-see{
+    display: none;
+}
+
+input[value=sortie]:not(checked) ~ table tr.sortie,
+input[value=arrival]:not(checked) ~ table tr.arrival{
+   display: none;
+}
+ 
+input[value=sortie]:checked ~ table tr.arrival,
+input[value=arrival]:checked ~ table tr.sortie  {
+   display: table-row;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    overflow: hidden;
+    z-index: 3;
+    margin: 80px auto;
+    width: 960px;
+    table-layout: fixed;   
+}
+
+tr:nth-child(1){
+    position: fixed;
+    top: 50px; 
+    z-index: 5;
+    width: 960px; 
+}
+
+th{
+    background-color: #006600;
+}
+
+td, th {
+    padding: 10px;
+    position: relative;
+    z-index: 4;
+    border: 1px solid green;
+    width: 11%;
+}
+tr{
+     overflow: hidden;
+} 
+tr:nth-child(odd){
+   background-color: #19D119;
+}
+
+tr:nth-child(even){
+   background-color: #009900;
+}
+
+td:hover::before { 
+    border: 3px solid yellow;
+    content: '\00a0';  
+    height: 100%;
+    left: -5000px;
+    position: absolute;  
+    top: 0;
+    width: 10000px;   
+    z-index: -1;        
+}
+
+td:hover::after { 
+    border: 3px solid yellow;
+    content: '\00a0';  
+    height: 10000px;    
+    left: 0;
+    position: absolute;  
+    top: -5000px;
+    width: 100%;
+    z-index: -1;        
+}
+
+@media only screen and (max-width: 900px) {
+    .name_company {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+    .type_plane {
+        display: none;
+    } 
+}
+
+tr td:last-child{
+    display: none;
+}
+ 
+.closebtn{
+     text-decoration: none;
+     font-size: 30px;
+     font-weight: bold;
+     color: green;
+     padding-top: 7px;
+
+}
+
+.closebtn:hover{
+      color: black;
+}
+
+.modal:target{
+     height: 180px;
+     z-index: 10;
+     position: absolute;
+     width: 920px;
+     background-color: yellow;
+     border: 6px solid #996600;
+     padding: 30px;
+     margin: 10px auto;
+     padding: 1em;
+     left: 20;
+    
+}
+.modal:target td{
+      display: inline;
+      padding: 10px;
+    
+}
+ 
+.modal:target .closebtn{
+     display: inline;
+}
+ 
